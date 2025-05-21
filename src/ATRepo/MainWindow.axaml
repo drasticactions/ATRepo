@@ -1,0 +1,32 @@
+<ClassicWindow xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:ATRepo.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="350"
+        x:Class="ATRepo.MainWindow"
+        x:DataType="viewModels:MainWindowViewModel"
+        Title="ATRepo">
+    <Design.DataContext>
+        <viewModels:MainWindowViewModel_Design/>
+    </Design.DataContext>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Command="{Binding OpenRepoFileCommand}" Header="_Open Repo File"/>
+        </Menu>
+        <Grid>
+            <Grid ColumnDefinitions="150, *">
+                <DataGrid 
+                    ItemsSource="{Binding ATObjects}"
+                    IsReadOnly="True"
+                    CanUserSortColumns="False"
+                    GridLinesVisibility="All"
+                    BorderThickness="1">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*" Header="Type" Binding="{Binding Type}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+    </DockPanel>
+</ClassicWindow>
