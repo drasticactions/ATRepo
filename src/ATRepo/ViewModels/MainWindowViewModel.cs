@@ -51,7 +51,7 @@ public partial class MainWindowViewModel : ObservableObject
         }
 
         this.ATObjects.Clear();
-        using var stream = await result[0].OpenReadAsync();
+        await using var stream = await result[0].OpenReadAsync();
         var repoFile = CarDecoder.DecodeRepoAsync(stream);
         await foreach (var item in repoFile)
         {
