@@ -4,6 +4,7 @@
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
   </PropertyGroup>
   <ItemGroup>
+    <PackageVersion Include="Markdown.Avalonia.Tight" Version="11.0.3-a1" />
     <PackageVersion Include="FishyFlip" Version="3.10.0-alpha.12" />
     <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.0" />
     <PackageVersion Include="Avalonia.Controls.DataGrid" Version="11.3.0" />

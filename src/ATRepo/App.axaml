@@ -7,5 +7,7 @@
     <Application.Styles>
        <ClassicTheme />
        <StyleInclude Source="avares://Classic.Avalonia.Theme.DataGrid/Classic.axaml"/>
+       <!-- <SimpleTheme/> -->
+       <!-- <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Simple.xaml"/> -->
     </Application.Styles>
 </Application>

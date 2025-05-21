@@ -3,6 +3,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:ATRepo.ViewModels"
+        xmlns:atRepo="clr-namespace:ATRepo"
+        xmlns:lexicon="clr-namespace:FishyFlip.Lexicon;assembly=FishyFlip"
+        xmlns:mdxaml="https://github.com/whistyun/Markdown.Avalonia.Tight"
+        xmlns:feed="clr-namespace:FishyFlip.Lexicon.App.Bsky.Feed;assembly=FishyFlip"
         mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="350"
         x:Class="ATRepo.MainWindow"
         x:DataType="viewModels:MainWindowViewModel"
@@ -10,6 +14,10 @@
     <Design.DataContext>
         <viewModels:MainWindowViewModel_Design/>
     </Design.DataContext>
+    <Window.Resources>
+        <atRepo:ATObjectJsonConverter x:Key="AtObjectJsonConverter"/>
+        <atRepo:PostTextConverter x:Key="PostTextConverter"/>
+    </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Command="{Binding OpenRepoFileCommand}" Header="_Open Repo File"/>
@@ -21,11 +29,36 @@
                     IsReadOnly="True"
                     CanUserSortColumns="False"
                     GridLinesVisibility="All"
+                    SelectedItem="{Binding SelectedATObject}"
                     BorderThickness="1">
                     <DataGrid.Columns>
                         <DataGridTextColumn Width="*" Header="Type" Binding="{Binding Type}" />
                     </DataGrid.Columns>
                 </DataGrid>
+                <ContentControl Content="{Binding SelectedATObject}" Grid.Column="1">
+                    <ContentControl.DataTemplates>
+                        <DataTemplate DataType="{x:Type feed:Post}">
+                            <HeaderedContentControl Header="{Binding Type}">
+                                <TabControl Margin="5">
+                                    <TabItem Header="Post">
+                                        <StackPanel Margin="5">
+                                            <mdxaml:MarkdownScrollViewer Markdown="{Binding ., Converter={StaticResource PostTextConverter}}"/>
+                                            <TextBlock Text="{Binding CreatedAt}"/>
+                                        </StackPanel>
+                                    </TabItem>
+                                    <TabItem Header="Raw">
+                                        <TextBox IsReadOnly="True" AcceptsReturn="True" AcceptsTab="True" Text="{Binding ., Converter={StaticResource AtObjectJsonConverter}}" />
+                                    </TabItem>
+                                </TabControl>
+                            </HeaderedContentControl>
+                        </DataTemplate>
+                        <DataTemplate DataType="{x:Type lexicon:ATObject}">
+                            <HeaderedContentControl Header="{Binding Type}">
+                                <TextBox IsReadOnly="True" AcceptsReturn="True" AcceptsTab="True" Text="{Binding ., Converter={StaticResource AtObjectJsonConverter}}" />
+                            </HeaderedContentControl>
+                        </DataTemplate>
+                    </ContentControl.DataTemplates>
+                </ContentControl>
             </Grid>
         </Grid>
     </DockPanel>

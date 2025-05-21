@@ -16,6 +16,8 @@ public partial class MainWindowViewModel : ObservableObject
     /// Gets the collection of ATObjects.
     /// </summary>
     public ObservableCollection<ATObject> ATObjects { get; } = new();
+    
+    [ObservableProperty] private ATObject _selectedATObject;
 
     [ObservableProperty] private bool isBusy = false;
 
@@ -70,4 +72,8 @@ public partial class MainWindowViewModel : ObservableObject
     }
 
     private bool CanOpenRepoFile() => true;
+
+    partial void OnSelectedATObjectChanged(ATObject value)
+    {
+    }
 }

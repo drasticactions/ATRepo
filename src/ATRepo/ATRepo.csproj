@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Markdown.Avalonia.Tight" />
     <PackageReference Include="FishyFlip" />
     <PackageReference Include="CommunityToolkit.Mvvm" />
     <PackageReference Include="Avalonia.Controls.DataGrid" />
