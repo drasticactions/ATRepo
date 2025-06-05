@@ -23,7 +23,13 @@
             <MenuItem Command="{Binding OpenRepoFileCommand}" Header="_Open Repo File"/>
         </Menu>
         <Grid>
-            <Grid ColumnDefinitions="150, *">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140" 
+                                      MinWidth="140"/>
+                    <ColumnDefinition Width="4"/>
+                    <ColumnDefinition Width="*" MinWidth="200"/>
+                </Grid.ColumnDefinitions>
                 <DataGrid 
                     ItemsSource="{Binding ATObjects}"
                     IsReadOnly="True"
@@ -35,7 +41,8 @@
                         <DataGridTextColumn Width="*" Header="Type" Binding="{Binding Type}" />
                     </DataGrid.Columns>
                 </DataGrid>
-                <ContentControl Content="{Binding SelectedATObject}" Grid.Column="1">
+                <GridSplitter Grid.Column="1" ResizeDirection="Columns"/>
+                <ContentControl Content="{Binding SelectedATObject}" Grid.Column="2">
                     <ContentControl.DataTemplates>
                         <DataTemplate DataType="{x:Type feed:Post}">
                             <HeaderedContentControl Header="{Binding Type}">
