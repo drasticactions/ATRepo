@@ -1,3 +1,7 @@
+// <copyright file="MainWindowViewModel.cs" company="Drastic Actions">
+// Copyright (c) Drastic Actions. All rights reserved.
+// </copyright>
+
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Avalonia;
@@ -10,16 +14,27 @@ using FishyFlip.Tools;
 
 namespace ATRepo.ViewModels;
 
+/// <summary>
+/// ViewModel for the main window.
+/// </summary>
 public partial class MainWindowViewModel : ObservableObject
 {
+    /// <summary>
+    /// Gets or sets the selected ATObject.
+    /// </summary>
+    [ObservableProperty]
+    private ATObject? selectedATObject;
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the ViewModel is busy.
+    /// </summary>
+    [ObservableProperty]
+    private bool isBusy = false;
+
     /// <summary>
     /// Gets the collection of ATObjects.
     /// </summary>
     public ObservableCollection<ATObject> ATObjects { get; } = new();
-    
-    [ObservableProperty] private ATObject _selectedATObject;
-
-    [ObservableProperty] private bool isBusy = false;
 
     [RelayCommand]
     private void Exit()
@@ -73,7 +88,7 @@ public partial class MainWindowViewModel : ObservableObject
 
     private bool CanOpenRepoFile() => true;
 
-    partial void OnSelectedATObjectChanged(ATObject value)
+    partial void OnSelectedATObjectChanged(ATObject? value)
     {
     }
 }

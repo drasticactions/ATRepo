@@ -1,3 +1,7 @@
+// <copyright file="ATObjectJsonConverter.cs" company="Drastic Actions">
+// Copyright (c) Drastic Actions. All rights reserved.
+// </copyright>
+
 using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -19,9 +23,9 @@ public class ATObjectJsonConverter : IValueConverter
         string prettifiedJson =
             System.Text.Json.JsonSerializer.Serialize(jsonDocument.RootElement, new
                 JsonSerializerOptions
-                {
-                    WriteIndented = true,
-                });
+            {
+                WriteIndented = true,
+            });
         return prettifiedJson;
     }
 

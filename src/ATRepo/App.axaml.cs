@@ -8,13 +8,18 @@ using Avalonia.Markup.Xaml;
 
 namespace ATRepo;
 
+/// <summary>
+/// A class representing the application.
+/// </summary>
 public partial class App : Application
 {
+    /// <inheritdoc/>
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
     }
 
+    /// <inheritdoc/>
     public override void OnFrameworkInitializationCompleted()
     {
         if (this.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)

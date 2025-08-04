@@ -5,16 +5,16 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="Markdown.Avalonia.Tight" Version="11.0.3-a1" />
-    <PackageVersion Include="FishyFlip" Version="3.10.0-alpha.12" />
+    <PackageVersion Include="FishyFlip" Version="3.10.0" />
     <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.0" />
-    <PackageVersion Include="Avalonia.Controls.DataGrid" Version="11.3.0" />
+    <PackageVersion Include="Avalonia.Controls.DataGrid" Version="11.3.2" />
     <PackageVersion Include="StyleCop.Analyzers" Version="1.2.0-beta.556" />
     <PackageVersion Include="GitVersion.MSBuild" Version="6.3.0" />
-    <PackageVersion Include="Avalonia" Version="11.3.0" />
-    <PackageVersion Include="Avalonia.Desktop" Version="11.3.0" />
-    <PackageVersion Include="Avalonia.Themes.Fluent" Version="11.3.0" />
-    <PackageVersion Include="Avalonia.Fonts.Inter" Version="11.3.0" />
-    <PackageVersion Include="Avalonia.Diagnostics" Version="11.3.0"/>
+    <PackageVersion Include="Avalonia" Version="11.3.2" />
+    <PackageVersion Include="Avalonia.Desktop" Version="11.3.2" />
+    <PackageVersion Include="Avalonia.Themes.Fluent" Version="11.3.2" />
+    <PackageVersion Include="Avalonia.Fonts.Inter" Version="11.3.2" />
+    <PackageVersion Include="Avalonia.Diagnostics" Version="11.3.2"/>
     <PackageVersion Include="Classic.Avalonia.Theme" Version="11.3.0" />
     <PackageVersion Include="Classic.Avalonia.Theme.DataGrid" Version="11.3.0" />
   </ItemGroup>

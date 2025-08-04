@@ -1,8 +1,15 @@
+// <copyright file="MarkdownConverter.cs" company="Drastic Actions">
+// Copyright (c) Drastic Actions. All rights reserved.
+// </copyright>
+
 using System.Text;
 using FishyFlip.Lexicon.App.Bsky.Richtext;
 
 namespace ATRepo;
 
+/// <summary>
+/// Converts a post with facets to markdown.
+/// </summary>
 public static class MarkdownConverter
 {
     /// <summary>

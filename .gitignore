@@ -5,6 +5,7 @@
 
 # dotenv files
 .env
+external/
 
 # User-specific files
 *.rsuser
